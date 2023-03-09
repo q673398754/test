@@ -9,15 +9,21 @@
     <div id="chat-box" style="height: 200px; overflow: scroll;"></div>
     <input id="input-box" type="text" placeholder="Type your message here...">
     <button id="submit-button">Send</button>
-    <script src="https://cdn.jsdelivr.net/npm/@openai/chat-alpha-client@0.2.2-alpha.1/dist/browser.js"></script>
     <script>
         const chatClient = new window.OpenAIChatAPIClient({
             model: 'text-davinci-002',
-            api_key: process.env.OPENAI_API_KEY
+            api_key: 'YOUR_OPENAI_API_KEY'
         });
         const chatBox = document.getElementById('chat-box');
         const inputBox = document.getElementById('input-box');
         const submitButton = document.getElementById('submit-button');
+
+        // Define process object for browser
+        const process = {
+            env: {
+                API_KEY: 'OPENAI_API_KEY'
+            }
+        };
 
         chatBox.innerText = 'ChatGPT: Welcome to the ChatGPT Demo!';
 
@@ -32,6 +38,18 @@
             chatBox.innerHTML += `<br>ChatGPT: ${response}`;
             chatBox.scrollTop = chatBox.scrollHeight;
         }
+
+        submitButton.addEventListener('click', handleButtonClick);
+        inputBox.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                handleButtonClick();
+            }
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@openai/chat-alpha-client@0.2.2-alpha.1/dist/browser.js"></script>
+</body>
+</html>
+
 
         submitButton.addEventListener('click', handleButtonClick);
         inputBox.addEventListener('keydown', (e) => {
