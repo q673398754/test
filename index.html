@@ -13,7 +13,7 @@
     <script>
         const chatClient = new window.OpenAIChatAPIClient({
             model: 'text-davinci-002',
-            api_key: process.env.API_KEY
+            api_key: process.env.openai_api_key
         });
         const chatBox = document.getElementById('chat-box');
         const inputBox = document.getElementById('input-box');
