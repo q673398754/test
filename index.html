@@ -13,7 +13,7 @@
     <script>
         const chatClient = new window.OpenAIChatAPIClient({
             model: 'text-davinci-002',
-            api_key: process.env.openai_api_key
+            api_key: process.env.OPENAI_API_KEY
         });
         const chatBox = document.getElementById('chat-box');
         const inputBox = document.getElementById('input-box');
@@ -21,7 +21,7 @@
 
         chatBox.innerText = 'ChatGPT: Welcome to the ChatGPT Demo!';
 
-        function handleButtonClick() {
+        async function handleButtonClick() {
             const userInput = inputBox.value.trim();
             if (!userInput) {
                 return;
