@@ -21,7 +21,7 @@
 
         chatBox.innerText = 'ChatGPT: Welcome to the ChatGPT Demo!';
 
-        submitButton.addEventListener('click', async () => {
+        function handleButtonClick() {
             const userInput = inputBox.value.trim();
             if (!userInput) {
                 return;
@@ -31,7 +31,9 @@
             const response = await chatClient.sendMessage(userInput);
             chatBox.innerHTML += `<br>ChatGPT: ${response}`;
             chatBox.scrollTop = chatBox.scrollHeight;
-        });
+        }
+
+        submitButton.addEventListener('click', handleButtonClick);
     </script>
 </body>
 </html>
