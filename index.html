@@ -2,46 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>ChatGPT Demo</title>
+    <title>Chat Demo</title>
 </head>
 <body>
-    <h1>ChatGPT Demo</h1>
+    <h1>Chat Demo</h1>
     <div id="chat-box" style="height: 200px; overflow: scroll;"></div>
     <input id="input-box" type="text" placeholder="Type your message here...">
     <button id="submit-button">Send</button>
-    <script>
-        const chatClient = new window.OpenAIChatAPIClient({
-            model: 'text-davinci-002',
-            api_key: 'OPENAI_API_KEY'
-        });
-        const chatBox = document.getElementById('chat-box');
-        const inputBox = document.getElementById('input-box');
-        const submitButton = document.getElementById('submit-button');
-
-        chatBox.innerText = 'ChatGPT: Welcome to the ChatGPT Demo!';
-
-        async function handleButtonClick() {
-            const userInput = inputBox.value.trim();
-            if (!userInput) {
-                return;
-            }
-            chatBox.innerHTML += `<br>User: ${userInput}`;
-            inputBox.value = '';
-            const response = await chatClient.sendMessage(userInput);
-            chatBox.innerHTML += `<br>ChatGPT: ${response}`;
-            chatBox.scrollTop = chatBox.scrollHeight;
-        }
-
-        submitButton.addEventListener('click', handleButtonClick);
-        inputBox.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter') {
-                handleButtonClick();
-            }
-        });
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/@openai/chat-alpha-client@latest/dist/browser.js?t=12345"
-            integrity="sha384-nml0l3h2Lv0fESJZ5DJ5z5TV88Rr+C5jk9XpAooW8/HDjR1+4YwZI11P3W8bkt64"
-            crossorigin="anonymous"
-            type="text/javascript"></script>
+    <script src="./app.js"></script>
+    <script src="./openai.js"></script>
 </body>
 </html>
