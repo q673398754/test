@@ -18,13 +18,6 @@
         const inputBox = document.getElementById('input-box');
         const submitButton = document.getElementById('submit-button');
 
-        // Define process object for browser
-        const process = {
-            env: {
-                API_KEY: 'OPENAI_API_KEY'
-            }
-        };
-
         chatBox.innerText = 'ChatGPT: Welcome to the ChatGPT Demo!';
 
         async function handleButtonClick() {
@@ -46,18 +39,9 @@
             }
         });
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/@openai/chat-alpha-client@0.2.2-alpha.1/dist/browser.js"></script>
-</body>
-</html>
-
-
-        submitButton.addEventListener('click', handleButtonClick);
-        inputBox.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter') {
-                handleButtonClick();
-            }
-        });
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@openai/chat-alpha-client@0.2.2-alpha.1/dist/browser.js"
+            integrity="sha384-nml0l3h2Lv0fESJZ5DJ5z5TV88Rr+C5jk9XpAooW8/HDjR1+4YwZI11P3W8bkt64"
+            crossorigin="anonymous"></script>
 </body>
 </html>
 
