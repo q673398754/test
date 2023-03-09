@@ -13,7 +13,7 @@
     <script>
         const chatClient = new window.OpenAIChatAPIClient({
             model: 'text-davinci-002',
-            api_key: process.env.OPENAI_API_KEY
+            api_key: process.env.API_KEY
         });
         const chatBox = document.getElementById('chat-box');
         const inputBox = document.getElementById('input-box');
@@ -34,6 +34,11 @@
         }
 
         submitButton.addEventListener('click', handleButtonClick);
+        inputBox.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                handleButtonClick();
+            }
+        });
     </script>
 </body>
 </html>
